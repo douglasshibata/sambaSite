@@ -2,7 +2,7 @@
 nav{
     background-color: tomato;
     width: 100%;
-    height: 50px;
+    height: 30px;
 }
 header{
     background-color: aquamarine;
@@ -10,7 +10,7 @@ header{
     height: 200px;
 }
 article{
-    background-color: black;
+    background-color: firebrick;
     width: 80%;
     height: 500px;
     float: left;
@@ -24,7 +24,7 @@ aside{
 section{
     background-color: darkgreen;
     width: 80%;
-    height: 20%;
+    height: 15%;
     clear: both;
     border: 2px solid ;
     margin: 10%;
@@ -34,4 +34,5 @@ footer{
     width: 100%;
     height: 200px;
     clear: both;
+    display: block;
 }
