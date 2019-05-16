@@ -15,13 +15,13 @@ article{
     height: 100px;
     border: 2px solid ;
     float: left;
-}/* 
+}
 aside{
-     background-color: blue;
-    width: 20%;
-    height: 500px;
+    /*background-color: blue;*/
+    width: 9%;
+    height: 300px;
     float: left;
-} */
+}
 section{
 /*     background-color: darkgreen;
  */    width: 80%;
