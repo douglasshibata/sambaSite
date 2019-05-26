@@ -15,7 +15,7 @@
         <h3>
             <p align="center">
                 <a href="#texto"> Samba</a>
-                <a href="#"> Comandos / Instalação</a>
+                <a href="#instalacao"> Comandos / Instalação</a>
                 <a href="#desenvolvedores"> Desenvolvedores </a>
             </p>
         </h3>
@@ -65,7 +65,76 @@
     </div>
 
     <div>
-        <h4> Instalação </h4>
+        <h4 id="instalacao"> Instalação Em 14 Simples Passos</h4>
+        <p> 1 - Primeiro entre no modo root:
+            <b> sudo su </b>
+        </p> 
+        
+        <p> 2 - Para instalar utilize o comando:
+            <b>apt-get install libcups2 samba samba-common</b>
+         </p> 
+        
+        <p> 3 - Abra um editor de texto para editar o arquivo de configuração do samba: 
+            <b>caminho  /etc/samba/smb.conf</b> <br/>
+            Procure a linha "security = user" e descomentar para dar segurança ao usuário 
+         </p> 
+        
+        <p> 4 - Reinicie o servidor samba:
+            <b>service smbd restart</b>
+         </p> 
+        
+        <p> 5 - Crie as pastas que serão compartilhadas na rede. Por exemplo: 
+            <b>mkdir /home/publico</b>
+         </p> 
+        
+        <p> 6 - Coloque o diretório no padrão público, e dê permissão para o grupo "users":
+            <b>chgrp users /home/publico</b>
+         </p> 
+        
+        <p> 7 - Forneça permissões de leitura, escrita e execução:
+            <b>chmod 775 /home/publico</b> <br/>
+            Fornecido permissões de leitura,escrita e execução para o root e grupo. <br/>
+            E para os outros apenas leitura e execução.
+         </p> 
+        
+        <p> 8 - Abra arquivo de configuração do samba:
+            <b>caminho /etc/samba/smb.conf</b>
+         </p> 
+        
+        <p> 9 - Acresente a sessão pública no arquivo: <br/>
+            Para inserir o nome da sessão é necessário abrir [publico] <br/>
+            <i><p> [publico] </p>
+            <p> comment = Pasta pública </p>
+            <p> path = /home/publico (Caminho do diretório publico) </p>
+            <p> valid users = @users (@= indica que é um grupo, users = é o nome do grupo) </p>
+            <p> force group = users (força o grupo users) </p>
+            <p> create mask = 0660 ( para indicar as permissões padrões quando os usuários forem criar arquivos dentro da pasta) </p>
+            <p> directory mask = 0771 ( para permissões na criação de diretórios) </p>
+            <p> writeable = yes (É possível escrever dentro do diretório) </p>
+            </i>
+         </p> 
+        
+        <p> 10 - Procure <b>[homes]</b> e descomente: <b>(comment e browseable)</b> para que os outros 
+            usuários não tenham acesso do diretório home.
+         </p> 
+        
+        <p> 11 - Reinicie o servidor para que as modificações feitas sejam aplicadas:
+            <b>service smbd restart</b>
+         </p> 
+        
+        <p> 12 - Adicionando um usuário: <br />
+            <p><b>useradd diogenes -m -G users</b> (adicionando um usuário no grupo users) </p>
+            <p><b>passwd diogenes</b> (criando uma senha para o novo usuário logar) </p>
+         </p> 
+        
+        <p> 13 - Adicione o usuário no samba: <br/>
+            <p><b>smbpasswd -a diogenes</b> (adicionando ao samba o usuário diogenes)  </p>
+            <p> Senha será requisitada </p>
+         </p> 
+        
+        <p> 14 - Veja qual é o ip da máquina pelo comando <b>ipconfig</b>: <br/>
+            <p> Mude para o windows e verifique se existe o servidor com o número de ip. </p>
+         </p> 
     </div>
 
     <div> 
