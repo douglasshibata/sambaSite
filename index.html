@@ -23,7 +23,7 @@
 
     <h1 align="center"> Samba </h1>
     <div id="texto"> 
-        <h4> O que é SaMBa? </h4>
+        <h3> O que é SaMBa? </h3>
         <p> O Samba é um "software servidor" para Linux (e outros sistemas baseados em Unix) que permite 
             o gerenciamento e compartilhamento de recursos em redes formadas por computadores com o 
             Windows.  
@@ -33,8 +33,8 @@
         </p>
     </div>
 
-    <div> 
-        <h4> O que o servidor Samba faz  </h4>
+    <div class="color"> 
+        <h3> O que o servidor Samba faz  </h3>
         <p> Com o servidor Samba, é possível compartilhar arquivos, compartilhar impressoras e controlar 
             o acesso a determinados recursos de rede com igual ou maior eficiência que servidores 
             baseados em sistemas operacionais da Microsoft.  
@@ -42,16 +42,16 @@
     </div>
 
     <div> 
-        <h4> Principais funcionalidades </h4>
+        <h3> Principais funcionalidades </h3>
         <p> Dentre tantas funcionalidades presentes no servidor Samba, podemos destacar: </p>
-        <p> Compartilhamento de arquivos, impressoras, diretórios, entre outros, com máquinas que rodam o Windows;  </p>
-        <p> Controle de acesso e privilégios;  </p>
-        <p> Resolução de nomes (DNS);  </p>
-        <p> Configurações a partir de ambientes remotos.  </p>
+        <p> • Compartilhamento de arquivos, impressoras, diretórios, entre outros, com máquinas que rodam o Windows;  </p>
+        <p> • Controle de acesso e privilégios;  </p>
+        <p> • Resolução de nomes (DNS);  </p>
+        <p> • Configurações a partir de ambientes remotos.  </p>
     </div>
 
-    <div> 
-        <h4> Swat (Samba Web Administration Tool) </h4>
+    <div class="color"> 
+        <h3> Swat (Samba Web Administration Tool) </h3>
         <p> O Samba pode ser configurado através de interfaces gráficas. Muitos administradores de rede 
             consideram esse meio mais eficiente do que editar o arquivo <i> smb.conf </i> através de um 
             editor de textos. O Swat é o meio mais usado para isso. Trata-se de uma ferramenta que 
@@ -64,44 +64,44 @@
         </p>
     </div>
 
-    <div>
-        <h4 id="instalacao"> Instalação Em 14 Simples Passos</h4>
-        <p> 1 - Primeiro entre no modo root:
+    <div id="divSize">
+        <h3 id="instalacao"> Instalação Em 14 Simples Passos</h3>
+        <p>  <b><i> 1° Passo </i></b> - Primeiro entre no modo root:
             <b> sudo su </b>
         </p> 
         
-        <p> 2 - Para instalar utilize o comando:
+        <p> <b><i> 2° Passo </i></b> - Para instalar utilize o comando:
             <b>apt-get install libcups2 samba samba-common</b>
          </p> 
         
-        <p> 3 - Abra um editor de texto para editar o arquivo de configuração do samba: 
+        <p> <b><i> 3° Passo </i></b> - Abra um editor de texto para editar o arquivo de configuração do samba: 
             <b>caminho  /etc/samba/smb.conf</b> <br/>
             Procure a linha "security = user" e descomentar para dar segurança ao usuário 
          </p> 
         
-        <p> 4 - Reinicie o servidor samba:
+        <p> <b><i> 4° Passo </i></b> - Reinicie o servidor samba:
             <b>service smbd restart</b>
          </p> 
         
-        <p> 5 - Crie as pastas que serão compartilhadas na rede. Por exemplo: 
+        <p> <b><i> 5° Passo </i></b> - Crie as pastas que serão compartilhadas na rede. Por exemplo: 
             <b>mkdir /home/publico</b>
          </p> 
         
-        <p> 6 - Coloque o diretório no padrão público, e dê permissão para o grupo "users":
+        <p> <b><i> 6° Passo </i></b> - Coloque o diretório no padrão público, e dê permissão para o grupo "users":
             <b>chgrp users /home/publico</b>
          </p> 
         
-        <p> 7 - Forneça permissões de leitura, escrita e execução:
+        <p> <b><i> 7° Passo </i></b> - Forneça permissões de leitura, escrita e execução:
             <b>chmod 775 /home/publico</b> <br/>
             Fornecido permissões de leitura,escrita e execução para o root e grupo. <br/>
             E para os outros apenas leitura e execução.
          </p> 
         
-        <p> 8 - Abra arquivo de configuração do samba:
+        <p> <b><i> 8° Passo </i></b> - Abra arquivo de configuração do samba:
             <b>caminho /etc/samba/smb.conf</b>
          </p> 
         
-        <p> 9 - Acresente a sessão pública no arquivo: <br/>
+        <p> <b><i> 9° Passo </i></b> - Acresente a sessão pública no arquivo: <br/>
             Para inserir o nome da sessão é necessário abrir [publico] <br/>
             <i><p> [publico] </p>
             <p> comment = Pasta pública </p>
@@ -114,31 +114,31 @@
             </i>
          </p> 
         
-        <p> 10 - Procure <b>[homes]</b> e descomente: <b>(comment e browseable)</b> para que os outros 
+        <p> <b><i> 10° Passo </i></b> - Procure <b>[homes]</b> e descomente: <b>(comment e browseable)</b> para que os outros 
             usuários não tenham acesso do diretório home.
          </p> 
         
-        <p> 11 - Reinicie o servidor para que as modificações feitas sejam aplicadas:
+        <p> <b><i> 11° Passo </i></b> - Reinicie o servidor para que as modificações feitas sejam aplicadas:
             <b>service smbd restart</b>
          </p> 
         
-        <p> 12 - Adicionando um usuário: <br />
-            <p><b>useradd diogenes -m -G users</b> (adicionando um usuário no grupo users) </p>
+        <p> <b><i> 12° Passo </i></b> - Adicionando um usuário: <br />
+            <p><b>useradd diogenes -m -G users</b> (adicionando usuário <u>diogenes</u> no grupo users) </p>
             <p><b>passwd diogenes</b> (criando uma senha para o novo usuário logar) </p>
          </p> 
         
-        <p> 13 - Adicione o usuário no samba: <br/>
+        <p> <b><i> 13° Passo </i></b> - Adicione o usuário no samba: <br/>
             <p><b>smbpasswd -a diogenes</b> (adicionando ao samba o usuário diogenes)  </p>
             <p> Senha será requisitada </p>
          </p> 
         
-        <p> 14 - Veja qual é o ip da máquina pelo comando <b>ipconfig</b>: <br/>
+        <p> <b><i> 14° Passo </i></b> - Veja qual é o ip da máquina pelo comando <b>ipconfig</b>: <br/>
             <p> Mude para o windows e verifique se existe o servidor com o número de ip. </p>
          </p> 
     </div>
 
-    <div> 
-        <h4> Curiosidade </h4>
+    <div class="color"> 
+        <h3> Curiosidade </h3>
         <p> De onde vem o nome Samba? O nome Samba foi adotado visto que o nome original do software, 
             SMB Server, era marca registrada de outro produto. Andrew Tridgell, autor do software, 
             consultou então seu verificador ortográfico e procurou palavras que contivessem as letras 
@@ -151,10 +151,10 @@
     </div>
 
     <footer id="desenvolvedores">
-        <h4 align="center"> Desenvolvedores:</h4> 
-        <p align="center"> <b> André Luiz, </b> </p>
-        <p align="center"> <b> Douglas Shibata, </b> </p>
-        <p align="center"> <b> Marcos Allysson. </b> </p>
+        <h3> Desenvolvedores:</h3> 
+        <p> <b> André Luiz, </b> </p>
+        <p> <b> Douglas Shibata, </b> </p>
+        <p> <b> Marcos Allysson. </b> </p>
     </footer>
 </body>
 
