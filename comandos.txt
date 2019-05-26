@@ -1,0 +1,45 @@
+Referências https://www.youtube.com/watch?v=gWoW89aukVI&t=387s (Servidor de arquivos com Samba no linux Ubuntu parte01)
+Primeiro entre no modo root, e em seguida.
+Para instalar utilize o comando :
+	apt-get install libcups2 samba samba-common
+Agora abra um editor de texto para editar o arquivo de configuração do samba 
+	caminho  /etc/samba/smb.conf
+e procurar a linha security = user e descomentar para dar segurança ao usuário 
+agora reinicie o servidor samba com o comando 
+	service smbd restart
+Agora criar as pastas que serão compartilhadas na rede 
+	criando um diretório público: 
+		mkdir /home/publico
+Colocar o diretório no padrão público, e dar permissão para o grupo users
+	para dar permissãoo para um grupo:
+		chgrp users /home/publico
+Agora fornecer permissões de leitura,escrita e execução
+	chmod 775 /home/publico 
+	forneceu permissões de leitura,escrita,execução para o root e grupo. e para os outros apenas leitura e execução.
+Agora abrir por um editor de texto o arquivo de configuração do samba
+	caminho /etc/samba/smb.conf
+e agora acresentar a sessão pública no arquivo.
+para inserir o nome da sessão é necessário abrir [publico]
+	[publico]
+		comment = Pasta pública
+		path = /home/publico (Caminho do diretório publico)
+		valid users = @users (@= indica que é um grupo, users = é o nome do grupo)
+		force group = users (força o grupo users)
+		create mask = 0660 ( para indicar as permissões padrões quando os usuários forem criar arquivos dentro da pasta)
+		directory mask = 0771 ( para permissões na criação de diretórios)
+		writeable = yes (É possível escrever dentro do diretório)
+
+
+agora ir no [homes] e descomentar o comment e o browseable para que os outros usuarios não tenham acesso para o diretório home
+Agora reiniciar o servidor samba para que as modificações que foram feitas sejam aplicadas
+	service smbd restart
+Adicionando um usuário
+	useradd diogenes -m -G users (adicionando um usuário no grupo users)
+	passwd diogenes (criando uma senha para o novo usuário conseguir logar)
+Agora adicionar esse usuário no samba
+	smbpasswd -a diogenes (adicionando ao samba o usuario diogenes)
+	abrira para colocar uma senha pra conectar com o samba
+Pegar o ip da máquina, pelo comando ifconfig
+e mudar para o windows e verificar se existe o servidor lá com o número de ip
+
+ 
