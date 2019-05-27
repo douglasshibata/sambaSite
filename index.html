@@ -78,7 +78,11 @@
             <b>caminho  /etc/samba/smb.conf</b> <br/>
             Procure a linha "security = user" e descomentar para dar segurança ao usuário 
          </p> 
-        
+        <!--  <p> <b><i> 3° Passo B: </i></b> - Faça uma cópia do arquivo orginal com o seguinte comando 
+            <b>cp  /etc/samba/smb.conf /etc/samba/smboriginal.conf </b> <br/>
+            Agora apague o conteúdo da cópia do arquivo com o comando
+            <b>echo ' ' > /etc/samba/smb.conf </b> <br/>
+         </p> --> 
         <p> <b><i> 4° Passo </i></b> - Reinicie o servidor samba:
             <b>service smbd restart</b>
          </p> 
