@@ -140,7 +140,18 @@
             <p> Mude para o windows e verifique se existe o servidor com o número de ip. </p>
          </p> 
     </div>
-
+    <div class="color">
+        <h3>Alguns comandos úteis</h3>
+        <p>Para saber o IP da máquina <b>- nmblookup -m IP_da_máquina</b></p>
+        <p>Instale com o seguinte comando: <b>apt-get install smbclient</b></p>
+        <p> Forma de descobrir compartilhamentos existentes:</p>
+        <p><b>smbclient -l nome_da_maquina -u nome_do_usuario -i ip</b> ou smbclient -l IP_do_samba </p>
+    </div>
+    <div>
+        <p><b>testparm</b>- utilizado para verificar e exibir as configurações existentes em um servidor samba,<br/> é útil, pois analisa linha por linha por linha do arquivo smb.conf procurando por erros</p>
+        <p><b>smbstatus</b> - O comando mostra as conexões ativas no samba</p>
+        <p><b>nbtscan</b> - Utilizado para descobrir máquinas ativas em uma rede Microsoft.<br/> É necessário baixar o pacote</p>
+    </div>
     <div class="color"> 
         <h3> Curiosidade </h3>
         <p> De onde vem o nome Samba? O nome Samba foi adotado visto que o nome original do software, 
